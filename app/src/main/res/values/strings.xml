@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Kudage</string>
+
+    <!-- MAIN -->
+    <string name="main_btn_formulario">Formulario</string>
+
+    <!-- FORMULARIO -->
+    <string name="form_et_nombre">Nombre</string>
+    <string name="form_et_edad">Edad</string>
+    <string name="form_et_fecha">Fecha</string>
+
+    <!-- GENERAL -->
+    <string name="volver">Volver</string>
+    <string name="guardar">Guardar</string>
+    <string name="main_btn_listado_usuarios">Listado Usuarios</string>
+
+
+</resources>

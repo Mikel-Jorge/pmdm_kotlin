@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    tools:context=".activities.FormularioActivity">
+
+    <TextView
+        android:id="@+id/form_tv_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_et_nombre"/>
+
+    <EditText
+        android:id="@+id/form_et_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/form_tv_nombre"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/form_tv_edad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_et_edad"
+        android:layout_below="@id/form_et_nombre"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/form_et_edad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/form_tv_edad"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/form_tv_fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_et_fecha"
+        android:layout_below="@id/form_et_edad"
+        android:layout_marginTop="16dp" />
+
+    <DatePicker
+        android:id="@+id/form_dp_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/form_tv_fecha"
+        android:layout_marginTop="16dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/form_dp_fecha">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickVolver"
+            android:text="@string/volver"
+            android:layout_marginLeft="50dp"
+            android:layout_alignParentLeft="true" />
+
+        <Button
+            android:id="@+id/form_bt_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickGuardar"
+            android:text="@string/guardar"
+            android:layout_marginRight="50dp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+</RelativeLayout>
