@@ -13,6 +13,7 @@
     <string name="volver">Volver</string>
     <string name="guardar">Guardar</string>
     <string name="main_btn_listado_usuarios">Listado Usuarios</string>
+    <string name="notificacion">Notificación</string>
 
 
 </resources>
