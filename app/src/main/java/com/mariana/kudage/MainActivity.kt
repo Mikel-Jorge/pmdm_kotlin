@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,15 +13,22 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.mariana.kudage.activities.FormularioActivity
 import com.mariana.kudage.activities.ListadoUsuariosActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         createNotificationChannel()
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
     }
 
     fun goToFormulario(view: View) {
@@ -39,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             .setContentTitle("Titulo Notificación")
             .setContentText("Texto de ejemplo de notificación corta")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
 
         with(NotificationManagerCompat.from(this)) {
             if (ActivityCompat.checkSelfPermission(
@@ -70,6 +79,28 @@ class MainActivity : AppCompatActivity() {
             val notificationManager: NotificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+
+
+
+
+    fun localizacion(view: View) {
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION), 321)
+        }
+
+        fusedLocationClient.lastLocation.addOnSuccessListener { location : Location? ->
+            println("TEST")
+            if (location != null)
+                println("Ubicación\nLatitud: " + location.latitude
+                        + "\nLongitud: " + location.longitude
+                        + "\nAltitud: " + location.altitude)
         }
     }
 }

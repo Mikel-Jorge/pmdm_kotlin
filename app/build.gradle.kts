@@ -48,7 +48,8 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
     // annotationProcessor("androidx.room:room-compiler:$room_version")
 
-
+    /* LOCALIZACION */
+    implementation("com.google.android.gms:play-services-location:21.1.0")
 
 
 
